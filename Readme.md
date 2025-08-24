@@ -38,7 +38,7 @@ The repository is intended for **educational use only** and follows academic int
 ## 👨‍🎓 Author  
 **Gurmehar Singh**  
 B.Tech – Computer Science & Engineering  
-Delhi Technological University 
+Delhi Technological University  
 Semester V  
 
 
