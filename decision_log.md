@@ -20,9 +20,9 @@
 - **Action**: Impute with **mode** (most frequent value).
 - **Reasoning**: Embarked is nominal categorical. Mode imputation preserves the **empirical class proportions**, minimizing distortion of the marginal distribution and avoiding arbitrary category inflation.
 
-### 2.3 Cabin
-- **Action**: **Drop** due to high missingness; optionally engineer `Deck` from first letter when present and add `HasCabin` indicator.
-- **Reasoning**: Extremely sparse features can inject noise and overfit. If retained, reduce dimension to stable summary (Deck) and track presence with an indicator so the model can exploit any strong signal without over-parameterization.
+### 2.3 Deck
+- **Action**: **Drop** due to high missingness.
+- **Reasoning**: Deck information, derived from Cabin, was largely missing. Retaining it would introduce noise and potential overfitting, so the column was dropped.
 
 ---
 
@@ -36,8 +36,8 @@
 ---
 
 ## 4) Categorical Encoding
-- **Action**: One-hot encode `Sex`, `Embarked`, and engineered `Title` from `Name`; use `drop_first=True` to avoid perfect multicollinearity.
-- **Reasoning**: One-hot preserves **category-level contrasts** without imposing ordinality. Dropping a reference level ensures model identifiability in linear models and reduces redundant dimensions.
+- **Action**: Encoded categorical variables including `Age`, `Embarked_town`, `Class`, and `Who` using appropriate encodings (one-hot/ordinal as needed).
+- **Reasoning**: Encoding these ensures categorical variables are represented numerically, enabling ML algorithms to process them effectively without assuming unwanted ordinality.
 
 ---
 
